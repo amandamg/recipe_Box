@@ -1,0 +1,55 @@
+<h1>Edit the Recipe</h1>
+
+<%= form_with model: @recipe, local: true do |form| %>
+  <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :Calories %><br>
+    <%= form.text_field :calories %>
+  </p>
+
+  <p>
+    <%= form.label :"Serving Size" %><br>
+    <%= form.text_field :servingSize %>
+  </p>
+
+  <p>
+    <%= form.label :"Time Cook" %><br>
+    <%= form.text_field :timeCook %>
+  </p>
+
+  <p>
+    <%= form.label :"Time Prep" %><br>
+    <%= form.text_field :timePrep %>
+  </p>
+
+  <p>
+    <%= form.label :Picture %><br>
+    <%= form.text_field :picture %>
+  </p>
+
+  <p>
+    <%= form.label :Description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.label :Directions %><br>
+    <%= form.text_area :directions %>
+  </p>
+
+  <p>
+    <%= form.label :Ingredients %><br>
+    <%= form.text_area :ingredients %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<p><%= link_to 'Back', recipe_path(@recipe) %></p>

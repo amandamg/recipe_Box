@@ -1,0 +1,43 @@
+<%= form_with model: @user, local: true do |form| %>
+  <p>
+    <%= form.label :"First Name" %><br>
+    <%= form.text_field :firstName %>
+  </p>
+
+  <p>
+    <%= form.label :"Last Name" %><br>
+    <%= form.text_field :lastName %>
+  </p>
+
+  <p>
+    <%= form.label :Email %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :Bio %><br>
+    <%= form.text_field :bio %>
+  </p>
+
+  <p>
+    <%= form.label :"Profile Picture" %><br>
+    <%= form.text_field :profilePic %>
+  </p>
+
+  <p>
+    <%= form.label :"Favorite Quote" %><br>
+    <%= form.text_field :favQuote %>
+  </p>
+
+  <p>
+    <%= form.label :"Specialty" %><br>
+    <%= form.text_area :specialty %>
+  </p>
+  <p>
+    <%= form.label :"Years Experience" %><br>
+    <%= form.text_field :years_exp %>
+  </p>
+  <p>
+    <%= form.submit %>
+
+<% end %>

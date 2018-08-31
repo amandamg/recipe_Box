@@ -1,0 +1,11 @@
+<h1>List of all Recipes</h1>
+<p><%= link_to 'Add Recipe', new_user_recipe_path(params[:user_id]) %>
+  <% @recipes.each do |recipe| %>
+    <ul>
+      <li><%= recipe.name %></li>
+      <p><%= link_to 'Show', recipe_path(recipe) %></p>
+    </ul>
+
+  <% end %>
+
+<p><%= link_to 'Back', user_path(params[:user_id]) %></p>

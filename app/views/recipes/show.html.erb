@@ -1,0 +1,59 @@
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <strong>Total Calories:</strong>
+  <%= @recipe.calories %>
+</p>
+
+<p>
+  <strong>Serving Size:</strong>
+  <%= @recipe.servingSize %>
+</p>
+
+<p>
+  <strong>Time Prep:</strong>
+  <%= @recipe.timePrep %>
+</p>
+
+<p>
+  <strong>Time Cook:</strong>
+  <%= @recipe.timeCook %>
+</p>
+
+<p>
+  <strong>Picture:</strong>
+  <%= @recipe.picture %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @recipe.description %>
+</p>
+
+<p>
+  <strong>Directions:</strong>
+  <%= @recipe.directions %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @recipe.ingredients %>
+</p>
+
+<br>
+
+
+<h2>Comments:</h2>
+<%= render @recipe.comments %>
+
+<h3>Add a comment</h3>
+<%= render 'comments/form' %>
+
+<p><%= link_to 'Back', user_recipes_path(@recipe.user_id) %></p>
+<p><%= link_to 'Edit', edit_recipe_path(@recipe) %></p>
+<p><%= link_to 'Destroy', recipe_path(@recipe),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></p>

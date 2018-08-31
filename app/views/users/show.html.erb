@@ -1,0 +1,40 @@
+<p>
+  <strong>Name:</strong>
+  <%= @user.firstName %> <%= @user.lastName %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @user.bio %>
+</p>
+
+<p>
+  <strong>Profile Picture:</strong>
+  <%= @user.profilePic %>
+</p>
+
+<p>
+  <strong>Favorite Quote:</strong>
+  <%= @user.favQuote %>
+</p>
+<p>
+  <strong>Specialty:</strong>
+  <%= @user.specialty %>
+</p
+<p>
+  <strong>Years Experience:</strong>
+  <%= @user.years_exp %>
+</p>
+
+<p><%= link_to 'Edit', edit_user_path(@user) %></p>
+<p><%= link_to 'Destroy', user_path(@user),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></p>
+<p><%= link_to 'Back', users_path %></p>
+
+<h3><%= link_to 'Your Recipes', user_recipes_path(@user) %></h3>
