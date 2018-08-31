@@ -1,19 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RecipeBox</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   </head>
+  <style>
+    body{
+      background-color: #8a005e;
+      background-image: url("https://www.transparenttextures.com/patterns/subtle-stripes.png");
+    }
+    #text{
+      color:#FEFEFE;
+    }
+  </style>
 
   <body>
-    <nav class="navbar navbar-light" style="background-color: #872A81;">
+    <nav class="navbar navbar-light" style="background-color: #8a005e">
     <div class="container-fluid">
       <div class="navbar-header">
-        <a class="navbar-brand" id="text" href="<%= root_path %>">RecipeBox</a>
+        <a class="navbar-brand" id="text" href="<%= root_path %>">RecipeBox <i class="fas fa-utensils"></i></a>
       </div>
       <ul class="nav navbar-nav">
         <li><a href= "<%= %>" id="text">My Recipes</a></li>
