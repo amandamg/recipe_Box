@@ -3,8 +3,7 @@
     .img{
     		width: 100%;
 				padding: 15px;
-				border: 6px solid white;
-				border-radius: 12px;
+				border: 2px solid grey;
 				background: white;
         height:325px;
         width:325px;
@@ -15,15 +14,21 @@
          padding-bottom:80px;
          padding-top:30px;
          padding-left:25px;
+         border-style: double;
        }
+
+       u{
+          text-decoration: none;
+          border-bottom: 1px solid black;
+        }​
     </style>
 
 <div class="row" style="margin-left:60px; margin-top:60px;">
-  <div class="col-sm-10 card">
+  <div class="col-sm-9 card">
   <div class="col-sm-4" style="margin-bottom:40px; margin-top:10px;">
-    <img class="img-responsive" src="<%= @user.profilePic %>" alt="Profile Picture">
+    <img class="img-responsive img" src="<%= @user.profilePic %>" alt="Profile Picture">
   </div>
-  <div class="col-sm-6">
+  <div class="col-sm-8">
     <p style="font-size:30px;">
       <strong>Name:</strong>
       <%= @user.firstName %> <%= @user.lastName %>
@@ -37,15 +42,16 @@
     <hr style="border-color:grey;">
     <p style="font-size:20px;">
       <strong>Ingredients To Live By:</strong>
-      <%= @user.favQuote %>
+      <u><%= @user.favQuote %></u>
     </p>
+    <br>
     <p style="font-size:20px;">
       <strong>Description:</strong>
       <%= @user.bio %>
     </p>
    </div>
   </div>
-  <div class="col-sm-2">  <!--follow/following panel -->
+  <div class="col-sm-2" style="background-color:white; margin-left:40px;">  <!--follow/following panel -->
     <p align=center>Follow Bottom</p>
   </div>
 </div>
@@ -81,7 +87,7 @@
 <p>
   <strong>Years Experience:</strong>
   <%= @user.years_exp %>
-</p>
+</p>  -->
 
 <p><%= link_to 'Edit', edit_user_path(@user) %></p>
 <p><%= link_to 'Destroy', user_path(@user),
@@ -89,4 +95,4 @@
               data: { confirm: 'Are you sure?' } %></p>
 <p><%= link_to 'Back', users_path %></p>
 
-<h3><%= link_to 'Your Recipes', user_recipes_path(@user) %></h3> -->
+<h3><%= link_to 'Your Recipes', user_recipes_path(@user) %></h3>
