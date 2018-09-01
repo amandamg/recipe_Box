@@ -1,6 +1,7 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   def index
-      @recipes = Recipe.where(user_id: params[:user_id])
+      @recipes = Recipe.where(user_id: current_user)
   end
 
   def show
@@ -8,7 +9,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   def edit
@@ -16,8 +17,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:user_id])
-    @recipe = @user.recipes.create(recipe_params)
+    @recipe = current_user.recipes.create(recipe_params)
 
     redirect_to @recipe  #the redirect_to is what added the article id to the url after creation to show created article
 

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def show
-      @user = User.find(params[:id])
+      @user = User.find(current_user.id)
   end
 
   def new
@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])  #this brings up the form with everything filled in from database
+    @user = User.find(current_user.id)  #this brings up the form with everything filled in from database
   end
 
   def create
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
 
     if @user.update(user_params)  #update a record that already exists
       redirect_to @user
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
     @user.destroy
 
     redirect_to users_path

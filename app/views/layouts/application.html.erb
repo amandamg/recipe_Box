@@ -21,22 +21,6 @@
   </style>
 
   <body>
-    <nav class="navbar navbar-light" style="background-color: #8a005e">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" id="text" href="<%= root_path %>">RecipeBox <i class="fas fa-utensils"></i></a>
-      </div>
-      <ul class="nav navbar-nav">
-        <li><a href= "<%= %>" id="text">My Recipes</a></li>
-        <li><a href="<%= %>" id="text">My Timeline</a></li>
-        <li><a href="<%= %>" id="text">Search</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#" id="text"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#" id="text"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </nav>
 
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
@@ -44,6 +28,33 @@
     <% if alert %>
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
+
+    <nav class="navbar navbar-light" style="background-color: #8a005e">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" id="text" href="<%= root_path %>">RecipeBox <i class="fas fa-utensils"></i></a>
+      </div>
+      <% if user_signed_in? %>
+      <ul class="nav navbar-nav">
+        <li><a href= "<%= user_recipes_path(current_user)%>" id="text">My Recipes</a></li>
+        <li><a href="<%= %>" id="text">My Timeline</a></li>
+        <li><a href="<%= %>" id="text">Search</a></li>
+      </ul>
+      <% end %>
+
+      <% if user_signed_in? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<%= user_path(current_user) %>" id="text"><%= current_user.firstName %></a></li>
+        <li><%= link_to('Logout', destroy_user_session_path, method: :delete) %></li>
+      </ul>
+      <% else %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<%= new_user_registration_path %>" id="text"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="<%= new_user_session_path %>" id="text"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      <% end %>
+    </div>
+  </nav>
     <%= yield %>
   </body>
 </html>
