@@ -1,11 +1,81 @@
-<h1>List of all Recipes</h1>
-<p><%= link_to 'Add Recipe', new_user_recipe_path(params[:user_id]) %>
-  <% @recipes.each do |recipe| %>
-    <ul>
-      <li><%= recipe.name %></li>
-      <p><%= link_to 'Show', recipe_path(recipe) %></p>
-    </ul>
+<style>
+  .img{
+      width: 100%;
+      padding: 15px;
+      border: 2px solid black;
+      background: #ffccff;
+      height:325px;
+      width:325px;
+     }
+    .card{
+      background-color:#ff99ff;
+      padding-bottom:80px;
+      padding-top:30px;
+      padding-left:25px;
+      border: 3px solid black;
 
+      margin-top:30px;
+    }
+    u{
+       text-decoration: none;
+       border-bottom: 1px solid black;
+     }​
+</style>
+
+<h1 align="center" style="color:white;"><%= current_user.firstName %>'s Recipes</h1>
+<br>
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-8" align=center>
+  <button type="button" class="btn"><%= link_to 'Add Recipe', new_user_recipe_path(params[:user_id]), :class => "btn" %></button>
+  </div>
+</div>
+
+    <% @recipes.each do |recipe| %>
+    <div class="row">
+      <div class="col-sm-2"></div>
+
+      <div class="col-sm-8 card">
+
+        <div class="col-sm-4" style="margin-bottom:40px; margin-top:10px;">
+          <img class="img-responsive img" src="<%= recipe.picture %>" alt="Profile Picture">
+        </div>
+        <div class="col-sm-8">
+          <p style="font-size:30px;">
+            <strong>Name:</strong>
+            <%= recipe.name %>
+          </p>
+          <hr style="border-color:grey;">
+          <p>
+            <strong>Total Calories:</strong>  <%= recipe.calories %>
+            &nbsp
+            <strong>Serving Size:</strong>  <%= recipe.servingSize %>
+          </p>
+          <hr style="border-color:grey;">
+
+          <p>
+            <strong>Time Prep:</strong>  <%= recipe.timePrep %>
+            &nbsp
+            <strong>Time Cook:</strong>  <%= recipe.timeCook %>
+          </p>
+          <hr style="border-color:grey;">
+          <p>
+            <strong>Description:</strong>  <u><%= recipe.description %></u>
+          </p>
+
+          <p>
+            <strong>Directions:</strong>  <u><%= recipe.directions %></u>
+          </p>
+
+          <p>
+            <strong>Ingredients:</strong>  <u><%= recipe.ingredients %></u>
+          </p>
+<br>
+        </div>
+        <button type="button" class="btn"><%= link_to 'Go to Recipe', recipe_path(recipe), :class => "btn"  %></button>
+    </div>
+
+
+  </div>
   <% end %>
-
 <p><%= link_to 'Back', user_path(params[:user_id]) %></p>

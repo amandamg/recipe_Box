@@ -9,11 +9,12 @@
      }
 
      .card{
-       background-color:white;
+       background-color:#ff99ff;
        padding-bottom:80px;
        padding-top:30px;
        padding-left:25px;
-       border-style: double;
+       border: 3px solid black;
+       margin-bottom: 50px;
      }
 
      u{
@@ -55,13 +56,13 @@
         <%= form.text_area :bio %>
       </p>
      </div>
+     <p align="center">
+       <%= form.submit %>
+     </p>
     </div>
     <div class="col-sm-2" style="background-color:white; margin-left:40px;">  <!--follow/following panel -->
       <p align=center>Follow Bottom</p>
     </div>
-  </div>
 
-  <p align="center">
-    <%= form.submit %>
-  </p>
+</div>
 <% end %>

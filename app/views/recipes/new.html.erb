@@ -1,53 +1,56 @@
-<h1>Add a Recipe</h1>
+<style>
+    .card{
+      background-color:#ff99ff;
+      padding-bottom:80px;
+      padding-top:30px;
+      padding-left:25px;
+      border: 3px solid black;
+    }
+</style>
+
+<h1 align="center" style="color:white;">New Recipe</h1>
+
+<div class="col-sm-2"></div>
 
 <%= form_with scope: @recipe, url: user_recipes_path(params[:user_id]), local: true do |form| %>
-  <p>
-    <%= form.label :Name %><br>
-    <%= form.text_field :name %>
-  </p>
+  <div class="col-sm-8 card">
+  <div class="col-sm-4" style="margin-bottom:40px; margin-top:10px;">
+    <p>
+      <%= form.label :"Picture:" %>  <%= form.text_field :picture %>
+    </p>
+  </div>
+  <div class="col-sm-8">
+    <p>
+      <%= form.label :"Name:" %>  <%= form.text_field :name %>
+    </p>
 
-  <p>
-    <%= form.label :Calories %><br>
-    <%= form.text_field :calories %>
-  </p>
+    <p>
+      <%= form.label :"Calories:" %>  <%= form.text_field :calories %>
+      <%= form.label :"Serving Size:" %>  <%= form.text_field :servingSize %>
+    </p>
 
-  <p>
-    <%= form.label :"Serving Size" %><br>
-    <%= form.text_field :servingSize %>
-  </p>
+    <p>
+      <%= form.label :"Time Prep:" %><%= form.text_field :timePrep %>
+      <%= form.label :"Time Cook:" %>  <%= form.text_field :timeCook %>
+    </p>
 
-  <p>
-    <%= form.label :"Time Cook" %><br>
-    <%= form.text_field :timeCook %>
-  </p>
+    <p>
+      <%= form.label :"Description:" %><br>
+      <%= form.text_area :description %>
+    </p>
 
-  <p>
-    <%= form.label :"Time Prep" %><br>
-    <%= form.text_field :timePrep %>
-  </p>
+    <p>
+      <%= form.label :"Directions:" %><br>
+      <%= form.text_area :directions %>
+    </p>
 
-  <p>
-    <%= form.label :Picture %><br>
-    <%= form.text_field :picture %>
-  </p>
-
-  <p>
-    <%= form.label :Description %><br>
-    <%= form.text_area :description %>
-  </p>
-
-  <p>
-    <%= form.label :Directions %><br>
-    <%= form.text_area :directions %>
-  </p>
-
-  <p>
-    <%= form.label :Ingredients %><br>
-    <%= form.text_area :ingredients %>
-  </p>
-
-  <p>
-    <%= form.submit %>
-  </p>
-
-<% end %>
+    <p>
+      <%= form.label :"Ingredients:" %><br>
+      <%= form.text_area :ingredients %>
+    </p>
+  </div>
+    <p>
+      <%= form.submit %>
+    </p>
+</div>
+  <% end %>
