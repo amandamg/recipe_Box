@@ -1,7 +1,6 @@
 <%= form_with(model: [ @recipe, @recipe.comments.build ], local: true) do |form| %>
   <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
+    <%= form.text_area :body, :placeholder => "Add a comment..."%>
   </p>
   <p>
     <%= form.submit %>
