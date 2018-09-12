@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   def index
-      @recipes = Recipe.where(user_id: current_user).order("created_at DESC")  #this will list the most recently created recipes first
+      @recipes = Recipe.where(user_id: params[:user_id]).order("created_at DESC")  #this will list the most recently created recipes first
+      @user = User.find(params[:user_id])
   end
 
   def show
