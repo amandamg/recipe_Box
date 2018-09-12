@@ -54,8 +54,15 @@
    </div>
   </div>
   <div class="col-sm-2" style="margin-left:40px;">  <!--follow/following panel -->
-    <p align=center>Follow Bottom</p>
-    <p align=center><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
+    <% if current_user.id != @user.id %>
+    <button type="button" class="btn" align=center>Follow Bottom</button>
+    <div><br></div>
+    <button type="button" class="btn" align=center><a href= "<%= user_recipes_path(@user.id)%>"> <%= @user.firstName %>'s Recipes </a></button>
+    <% end %>
+    <div><br></div>
+    <% if current_user.id == @user.id %>
+    <button type="button" class="btn" align=center><%= link_to 'Edit Profile', edit_user_path(@user), :class => "btn" %></button>
+    <% end %>
   </div>
 </div>
 
