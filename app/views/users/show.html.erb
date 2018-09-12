@@ -21,6 +21,7 @@
           text-decoration: none;
           border-bottom: 1px solid black;
         }​
+
     </style>
 
 <div class="row" style="margin-left:60px; margin-top:60px;">
@@ -35,64 +36,33 @@
     </p>
     <hr style="border-color:grey;">
     <p style="font-size:20px;">
-      <strong>Prep Time:</strong> <%= @user.years_exp %> years
+      <strong>Experience:</strong> <%= @user.years_exp %> years
       &nbsp   <!-- Used to make a tab space -->
       <strong>Specialty:</strong> <%= @user.specialty %>
     </p>
     <hr style="border-color:grey;">
     <p style="font-size:20px;">
-      <strong>Ingredients To Live By:</strong>
+      <strong>Favorite Quote:</strong>
       <u><%= @user.favQuote %></u>
     </p>
     <br>
     <p style="font-size:20px;">
-      <strong>Description:</strong>
-      <%= @user.bio %>
+      <strong>Bio:</strong>
+      <u><%= @user.bio %></u>
     </p>
+
    </div>
   </div>
-  <div class="col-sm-2" style="background-color:white; margin-left:40px;">  <!--follow/following panel -->
+  <div class="col-sm-2" style="margin-left:40px;">  <!--follow/following panel -->
     <p align=center>Follow Bottom</p>
+    <p align=center><%= link_to 'Edit Profile', edit_user_path(@user) %></p>
   </div>
 </div>
 
-<!-- <p>
-  <strong>Name:</strong>
-  <%= @user.firstName %> <%= @user.lastName %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @user.bio %>
-</p>
-
-<p>
-  <strong>Profile Picture:</strong>
-  <%= @user.profilePic %>
-</p>
-
-<p>
-  <strong>Favorite Quote:</strong>
-  <%= @user.favQuote %>
-</p>
-<p>
-  <strong>Specialty:</strong>
-  <%= @user.specialty %>
-</p>
-<p>
-  <strong>Years Experience:</strong>
-  <%= @user.years_exp %>
-</p>  -->
-
-<p><%= link_to 'Edit', edit_user_path(@user) %></p>
-<p><%= link_to 'Destroy', user_path(@user),
+<!-- <p><%= link_to 'Destroy', user_path(@user),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></p>
 <p><%= link_to 'Back', users_path %></p>
 
-<h3><%= link_to 'Your Recipes', user_recipes_path(@user) %></h3>
+<h3><%= link_to 'Your Recipes', user_recipes_path(@user) %></h3> -->

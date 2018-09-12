@@ -1,38 +1,67 @@
+<style>
+  .img{
+      width: 100%;
+      padding: 15px;
+      border: 2px solid grey;
+      background: white;
+      height:325px;
+      width:325px;
+     }
+
+     .card{
+       background-color:white;
+       padding-bottom:80px;
+       padding-top:30px;
+       padding-left:25px;
+       border-style: double;
+     }
+
+     u{
+        text-decoration: none;
+        border-bottom: 1px solid black;
+      }​
+  </style>
+
 <%= form_with model: @user, local: true do |form| %>
-  <p>
-    <%= form.label :"First Name" %><br>
-    <%= form.text_field :firstName %>
-  </p>
+  <div class="row" style="margin-left:60px; margin-top:60px;">
+    <div class="col-sm-9 card">
+    <div class="col-sm-4" style="margin-bottom:40px; margin-top:10px;">
+    <p>
+      <%= form.label :"Profile Picture" %><br>
+      <%= form.text_field :profilePic %>
+    </p>
+    </div>
+    <div class="col-sm-8">
+    <p>
+      <%= form.label :"First Name" %> <%= form.text_field :firstName %>
+      <%= form.label :"Last Name" %>  <%= form.text_field :lastName %>
+    </p>
+      <hr style="border-color:grey;">
+      <p style="font-size:20px;">
+      <p>
+        <%= form.label :"Years Experience" %>  <%= form.text_field :years_exp %>
+        <%= form.label :"Specialty" %>  <%= form.text_field :specialty %>
+      </p>
 
-  <p>
-    <%= form.label :"Last Name" %><br>
-    <%= form.text_field :lastName %>
-  </p>
+      </p>
+      <hr style="border-color:grey;">
+      <p>
+        <%= form.label :"Favorite Quote:" %><br>
+        <%= form.text_area :favQuote %>
+      </p>
+      <br>
+      <p>
+        <%= form.label :Bio %><br>
+        <%= form.text_area :bio %>
+      </p>
+     </div>
+    </div>
+    <div class="col-sm-2" style="background-color:white; margin-left:40px;">  <!--follow/following panel -->
+      <p align=center>Follow Bottom</p>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :Bio %><br>
-    <%= form.text_field :bio %>
-  </p>
-
-  <p>
-    <%= form.label :"Profile Picture" %><br>
-    <%= form.text_field :profilePic %>
-  </p>
-
-  <p>
-    <%= form.label :"Favorite Quote to Live By:" %><br>
-    <%= form.text_field :favQuote %>
-  </p>
-
-  <p>
-    <%= form.label :"Specialty" %><br>
-    <%= form.text_area :specialty %>
-  </p>
-  <p>
-    <%= form.label :"Years Experience" %><br>
-    <%= form.text_field :years_exp %>
-  </p>
-  <p>
+  <p align="center">
     <%= form.submit %>
-
+  </p>
 <% end %>
