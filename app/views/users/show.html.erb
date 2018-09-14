@@ -55,8 +55,6 @@
   </div>
   <div class="col-sm-2" style="margin-left:40px;">  <!--follow/following panel -->
     <% if current_user.id != @user.id %>
-    <button type="button" class="btn" align=center>Follow Bottom</button>
-    <div><br></div>
     <button type="button" class="btn" align=center><a href= "<%= user_recipes_path(@user.id)%>"> <%= @user.firstName %>'s Recipes </a></button>
     <% end %>
     <div><br></div>
