@@ -37,8 +37,7 @@
       <% if user_signed_in? %>
       <ul class="nav navbar-nav">
         <li><a href= "<%= user_recipes_path(current_user)%>" id="text">My Recipes</a></li>
-        <li><a href="<%= %>" id="text">My Timeline</a></li>
-        <li><a href="<%= %>" id="text">Search</a></li>
+        <li><a href="<%= users_path %>" id="text">Search Users</a></li>
       </ul>
       <% end %>
 

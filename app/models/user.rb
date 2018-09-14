@@ -4,4 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :recipes
+
+  def self.search(search)
+    where("firstName LIKE ?", "%#{search}%")
+  end
 end
